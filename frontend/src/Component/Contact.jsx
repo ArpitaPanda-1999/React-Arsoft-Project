@@ -27,7 +27,7 @@ const Contact = () => {
             newErr.phoneno = "Phone no. must required";
             isValid = false;
         }
-        else if(phoneno.length <= 10){
+        else if(phoneno.length > 11){
             newErr.phoneno = "Phone no. must be 10 digits";
             isValid = false;
         }
@@ -54,8 +54,8 @@ const Contact = () => {
     return(
         <div className="container row">
             <div className="col-lg-4"></div>
-            <div className="col-lg-4">
-                <h1 className="pb-4 pt-5">Contact Us</h1>
+            <div className="col-lg-4 border rounded-2 p-5">
+                <h1 className="pb-4 pt-2">Contact Us</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group p-3">
                         <label>Name<sup className="text-danger">*</sup></label>
@@ -66,7 +66,7 @@ const Contact = () => {
                             placeholder="Enter Name"
                             onChange={(e) => setName(e.target.value)}      
                         />
-                        {error.name && <span className="err">{error.name}</span>}
+                        {error.name && <span className="text-danger">{error.name}</span>}
                     </div>
                     <div className="form-group p-3">
                         <label>Email<sup className="text-danger">*</sup></label>
@@ -77,7 +77,7 @@ const Contact = () => {
                             placeholder="Enter Email"
                             onChange={(e) => setEmail(e.target.value)}
                         />
-                        {error.email && <span className="err">{error.email}</span>}
+                        {error.email && <span className="text-danger">{error.email}</span>}
                     </div>
                     <div className="form-group p-3">
                         <label>Phone no.<sup className="text-danger">*</sup></label>
@@ -88,7 +88,7 @@ const Contact = () => {
                             placeholder="Enter Phone no."
                             onChange={(e) => setPhoneno(e.target.value)}
                         />
-                        {error.phoneno && <span className="err">{error.phoneno}</span>}
+                        {error.phoneno && <span className="text-danger">{error.phoneno}</span>}
                     </div>
                     <div className="form-group p-3">
                         <label>Location<sup className="text-danger">*</sup></label>
@@ -99,12 +99,12 @@ const Contact = () => {
                             placeholder="Enter Location"
                             onChange={(e) => setLocation(e.target.value)}
                         />
-                        {error.location && <span className="err">{error.location}</span>}
+                        {error.location && <span className="text-danger">{error.location}</span>}
                     </div>
                     <button type="submit" className="btn btn-primary ms-3 mt-2">Submit</button>
                 </form>
             </div>
-            <div className="col-lg-4">
+            <div className="col-lg-4 border rounded-2 p-5">
                 {submittedData && (
                     <div>
                         <h3>Submitted Data:</h3>
